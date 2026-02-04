@@ -9,7 +9,7 @@ function App() {
 
 
   function fetchNotes(){
-    axios.get("http://localhost:3000/api/notes")
+    axios.get("https://basictodo-rmoe.onrender.com/api/notes")
     .then((res)=>{
       setNotes(res.data.allNotes)      
     }) 
@@ -24,7 +24,7 @@ function App() {
   async function submitHandler(e){
     e.preventDefault();
 
-    await axios.post("http://localhost:3000/api/notes", {
+    await axios.post("https://basictodo-rmoe.onrender.com/api/notes", {
       title: e.target.elements.title.value,
       desc: e.target.elements.desc.value
     })
@@ -33,7 +33,7 @@ function App() {
   }
 
   async function deleteHandle(id){
-    await axios.delete("http://localhost:3000/api/notes/"+id)
+    await axios.delete("https://basictodo-rmoe.onrender.com/api/notes/"+id)
 
     fetchNotes();
   }
@@ -46,7 +46,7 @@ function App() {
   async function handleEditSubmit(e){
 
     e.preventDefault();    
-    await axios.patch("http://localhost:3000/api/notes/"+editId, {
+    await axios.patch("https://basictodo-rmoe.onrender.com/api/notes/"+editId, {
       title: e.target.elements.newTitle.value,
       desc: e.target.elements.newDesc.value
     })
